@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 
-function ProductList({ products }) {
+function ProductList({ products, onRemove }) {
   const anyInStock = products.some((product) => product.inStock);
 
   if (!anyInStock) {
@@ -11,7 +11,7 @@ function ProductList({ products }) {
   return (
     <>
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard key={product.id} product={product} onRemove={onRemove} />
       ))}
     </>
   );

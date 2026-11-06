@@ -1,14 +1,25 @@
-import React from 'react';
-import ProductCard from './ProductCard';
+import React from "react";
+import ProductCard from "./ProductCard";
 
-const ProductList = ({ products }) => {
-  // TODO: Check if the product list is empty and display a message if needed
+// FIXED: receives products as a prop instead of defining it here
+function ProductList({ products }) {
+  // FIXED: added the "no products in stock" check (Step 3)
+  const anyInStock = products.some((product) => product.inStock);
+
+  if (!anyInStock) {
+    return <p>No products in stock.</p>;
+  }
 
   return (
-    <div>
-      {/* TODO: Iterate over the products array and render a ProductCard for each product */}
-    </div>
+    // FIXED: wrapped in a fragment, since a bare {} can't sit directly in return
+    <>
+      {products.map((product) => (
+        // FIXED: renders ProductCard instead of the raw <div>; key is on this element
+        // FIXED: arrow function with () removes the extra return and brace-matching
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </>
   );
-};
+} // FIXED: removed the stray ";" after the closing brace
 
 export default ProductList;

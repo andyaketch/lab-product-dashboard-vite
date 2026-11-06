@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import ProductList from './components/ProductList';
+import React, { useState } from "react";
+import ProductList from "./components/ProductList";
 
 const App = () => {
   // TODO: Define initial product data
@@ -10,12 +10,11 @@ const App = () => {
 
   return (
     <div>
-      <h1>{/* TODO: Add 'Product Dashboard' title here */}</h1>
-      
-      {/* TODO: Add buttons to allow filtering by availability */}
-
-      {/* TODO: Render the ProductList component and pass filtered products */}
-      
+      <h1>Product Dashboard</h1>
+      <h1>key={product.id}</h1>
+      <h1>{product.name}</h1>
+      <p>{product.price}</p>
+      <p>{product.inStock ? "In Stock" : "Out of Stock"}</p>
     </div>
   );
 };
